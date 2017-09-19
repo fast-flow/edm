@@ -16,6 +16,7 @@ let compressInlineCss = deasync(function(content, callback){
         callback(data.html)
     })
 })
+
 fis.match('**.html', {
     parser: [
         function (html) {
@@ -45,3 +46,12 @@ fis.match('view/**.**', {
 fis.media('online').match('**', {
     useHash: true
 })
+
+if (typeof process.env.v !== 'undefined') {
+    fis.match('**', {
+        release: false
+    })
+    fis.match('view/' + process.env.v + '/**', {
+        release: true
+    })
+}
