@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "dev": "fis3 release -w -d ./output",
+    "s": "node server.js",
+    "online": "rm -rf ./output && fis3 release online -d ./output",
+    "deploy:qiniu": "fis3 release -r ./output -f deploy-qiniu.js",
+    "up": "npm run online && npm run deploy:qiniu"
+  },
+  "dependencies": {
+    "deploy:qiniu": "fis3 release -r ./output -f deploy-qiniu.js",
+    "deasync": "https://github.com/npm-modules/deasync.git",
+    "express": "^4.15.4",
+    "fis3-deploy-qiniu": "^1.0.8",
+    "livereload": "^0.6.2",
+    "posthtml": "^0.9.2",
+    "posthtml-inline-css": "^1.2.3",
+    "posthtml-remove-attributes": "^1.0.0",
+    "posthtml-remove-tags": "^0.1.0"
+  }
+}
