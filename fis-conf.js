@@ -4,11 +4,8 @@ var posthtmlInlineCss = require('posthtml-inline-css')
 let compressInlineCss = deasync(function(content, callback){
     posthtml([
         posthtmlInlineCss(),
-        require('posthtml-remove-attributes')([
-            'class'
-        ]),
         require('posthtml-remove-tags')({
-            tags: ['style', 'script']
+            tags: ['link', 'style', 'script']
         })
     ])
     .process(content)
